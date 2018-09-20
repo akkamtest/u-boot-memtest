@@ -38,21 +38,21 @@ void reset_seed(void)
 }
 
 /*  Allows to visualize which test return the error, the faulty address and the difference between the expected value and the one read */
-void error(unsigned long long int adr, unsigned long long int good, unsigned long long int bad, int test_num)
+void error(ulong adr, ulong good, ulong bad, int test_num)
 {
 	printf ("TEST number: %d\n", test_num);
-	printf ("	Faulty address: %llx\n", adr);
-	printf ("		>Expected result: %llx\n", good);
-	printf ("		>Obtained value : %llx\n", bad);	
+	printf ("	Faulty address: %08lx\n", adr);
+	printf ("		>Expected result: %08lx\n", good);
+	printf ("		>Obtained value : %08lx\n", bad);	
 }
 
 #ifdef DEBUG_MEMTEST
 	/*  Allows to visualize which test return the error, the faulty address and the difference between the expected value and the one read */
-	void mtest_debug(int test_num, unsigned long long int adr, unsigned long long int value)
+	void mtest_debug(int test_num, ulong adr, ulong value)
 {
 	printf ("TEST number: %d\n", test_num);
-	printf ("	> Address: %llx\n", adr);
-	printf ("	> Value  : %llx\n", value);	
+	printf ("	> Address: %08lx\n", adr);
+	printf ("	> Value  : %08lx\n", value);	
 }
 #endif
 
@@ -61,18 +61,19 @@ void error(unsigned long long int adr, unsigned long long int good, unsigned lon
 // Start: Starting address of the test
 // End  : Ending address of the test
 // stop_after_err: 1 stop the test after an error / 0 let the test running
-unsigned char addr_tst0(unsigned long long int *buf, unsigned long long int start, unsigned long long int end, unsigned char stop_after_err)
+unsigned char addr_tst1(ulong start, ulong end, unsigned char stop_after_err)
 {
-	unsigned char i;
-	unsigned char *p;
-	unsigned char *pe;
-	unsigned char mask;
-
+	unsigned char i, mask, *p, *pe;
 	int test_num = 1;
 
 	/* Initialise tested memory range */
 	p = (unsigned char *)start;
-	pe = (unsigned char *)end;
+	pe = (unsigned char *)end;	
+		
+	/* Disable cache */
+	icache_disable();
+	dcache_disable();
+	
 	/* test each bit for all address */
 	for (; p <= pe; p++) 
 	{
@@ -82,56 +83,53 @@ unsigned char addr_tst0(unsigned long long int *buf, unsigned long long int star
 			mask = 1<<i;
 			*p &= mask;
 			*p |= mask;
+#ifdef DEBUG_MEMTEST
+			mtest_debug(test_num, (ulong)p, *p);
+#endif
 			if(*p != mask) 
 			{
-				error((unsigned long long int)p, mask, (unsigned long long int)*p, test_num);
+				error((ulong)p, mask, (ulong)*p, test_num);
 				if (stop_after_err == 1)
 				{
 					return(1);	
 				}
 			}
 		}
-		//mtest_debug(test_num, (unsigned long long int)p, *p);
 	}
 	return(0);
 }
 
-
-unsigned char addr_tst1(unsigned long long int *buf, unsigned long long int start, unsigned long long int end, char stop_after_err)
+unsigned char addr_tst2(ulong start, ulong end, char stop_after_err)
 {
-	unsigned long long int *p;
-	unsigned long long int *pe;
+	ulong *p, *pe;
 	int test_num = 2;	
 
 	/* Initialise tested memory range */
-	p = (unsigned long long int *)start;
-	pe = (unsigned long long int *)end;
-	mtest_debug(test_num, (unsigned long long int)p, *p);
-	mtest_debug(test_num, (unsigned long long int)pe, *pe);
+	p = (ulong*)start;
+	pe = (ulong*)end;
+	
 	/* Write each address with it's own address */	
 	for (; p <= pe; p++) 
 	{		
-		*p = (unsigned long long int)p;
+		*p = (ulong)p;
 #ifdef DEBUG_MEMTEST
-		mtest_debug(test_num, (unsigned long long int)p, *p);
+		mtest_debug(test_num, (ulong)p, *p);
 #endif
 	}
 
 	/* Each address should have its own address */
-	p = (unsigned long long int *)start;
-	pe = (unsigned long long int *)end;
+	p = (ulong *)start;
+	pe = (ulong *)end;
 	for (; p <= pe; p++) 
-	{
-		
-		if(*p != (unsigned long long int)p) 
+	{		
+		if(*p != (ulong)p) 
 		{
-			error((unsigned long long int)p, (unsigned long long int)p, *p, test_num);
+			error((ulong)p, (ulong)p, *p, test_num);
 			if (stop_after_err == 1)
 			{
 				return(1);	
 			}
 		}
 	}
-	mtest_debug(0, 0, 0);
 	return(0);
 }

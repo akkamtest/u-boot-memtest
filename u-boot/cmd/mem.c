@@ -572,288 +572,6 @@ static int do_mem_loopw(cmd_tbl_t *cmdtp, int flag, int argc,
 #endif /* CONFIG_LOOPW */
 
 #ifdef CONFIG_CMD_MEMTEST
-static ulong mem_test_alt(vu_long *buf, ulong start_addr, ulong end_addr,
-			  vu_long *dummy)
-{
-	vu_long *addr;
-	ulong errs = 0;
-	ulong val, readback;
-	int j;
-	vu_long offset;
-	vu_long test_offset;
-	vu_long pattern;
-	vu_long temp;
-	vu_long anti_pattern;
-	vu_long num_words;
-	static const ulong bitpattern[] = {
-		0x00000001,	/* single bit */
-		0x00000003,	/* two adjacent bits */
-		0x00000007,	/* three adjacent bits */
-		0x0000000F,	/* four adjacent bits */
-		0x00000005,	/* two non-adjacent bits */
-		0x00000015,	/* three non-adjacent bits */
-		0x00000055,	/* four non-adjacent bits */
-		0xaaaaaaaa,	/* alternating 1/0 */
-	};
-
-	num_words = (end_addr - start_addr) / sizeof(vu_long);
-
-	/*
-	 * Data line test: write a pattern to the first
-	 * location, write the 1's complement to a 'parking'
-	 * address (changes the state of the data bus so a
-	 * floating bus doesn't give a false OK), and then
-	 * read the value back. Note that we read it back
-	 * into a variable because the next time we read it,
-	 * it might be right (been there, tough to explain to
-	 * the quality guys why it prints a failure when the
-	 * "is" and "should be" are obviously the same in the
-	 * error message).
-	 *
-	 * Rather than exhaustively testing, we test some
-	 * patterns by shifting '1' bits through a field of
-	 * '0's and '0' bits through a field of '1's (i.e.
-	 * pattern and ~pattern).
-	 */
-	addr = buf;
-	for (j = 0; j < sizeof(bitpattern) / sizeof(bitpattern[0]); j++) {
-		val = bitpattern[j];
-		for (; val != 0; val <<= 1) {
-			*addr = val;
-			*dummy  = ~val; /* clear the test data off the bus */
-			readback = *addr;
-			if (readback != val) {
-				printf("FAILURE (data line): "
-					"expected %08lx, actual %08lx\n",
-						val, readback);
-				errs++;
-				if (ctrlc())
-					return -1;
-			}
-			*addr  = ~val;
-			*dummy  = val;
-			readback = *addr;
-			if (readback != ~val) {
-				printf("FAILURE (data line): "
-					"Is %08lx, should be %08lx\n",
-						readback, ~val);
-				errs++;
-				if (ctrlc())
-					return -1;
-			}
-		}
-	}
-
-	/*
-	 * Based on code whose Original Author and Copyright
-	 * information follows: Copyright (c) 1998 by Michael
-	 * Barr. This software is placed into the public
-	 * domain and may be used for any purpose. However,
-	 * this notice must not be changed or removed and no
-	 * warranty is either expressed or implied by its
-	 * publication or distribution.
-	 */
-
-	/*
-	* Address line test
-
-	 * Description: Test the address bus wiring in a
-	 *              memory region by performing a walking
-	 *              1's test on the relevant bits of the
-	 *              address and checking for aliasing.
-	 *              This test will find single-bit
-	 *              address failures such as stuck-high,
-	 *              stuck-low, and shorted pins. The base
-	 *              address and size of the region are
-	 *              selected by the caller.
-
-	 * Notes:	For best results, the selected base
-	 *              address should have enough LSB 0's to
-	 *              guarantee single address bit changes.
-	 *              For example, to test a 64-Kbyte
-	 *              region, select a base address on a
-	 *              64-Kbyte boundary. Also, select the
-	 *              region size as a power-of-two if at
-	 *              all possible.
-	 *
-	 * Returns:     0 if the test succeeds, 1 if the test fails.
-	 */
-	pattern = (vu_long) 0xaaaaaaaa;
-	anti_pattern = (vu_long) 0x55555555;
-
-	debug("%s:%d: length = 0x%.8lx\n", __func__, __LINE__, num_words);
-	/*
-	 * Write the default pattern at each of the
-	 * power-of-two offsets.
-	 */
-	for (offset = 1; offset < num_words; offset <<= 1)
-		addr[offset] = pattern;
-
-	/*
-	 * Check for address bits stuck high.
-	 */
-	test_offset = 0;
-	addr[test_offset] = anti_pattern;
-
-	for (offset = 1; offset < num_words; offset <<= 1) {
-		temp = addr[offset];
-		if (temp != pattern) {
-			printf("\nFAILURE: Address bit stuck high @ 0x%.8lx:"
-				" expected 0x%.8lx, actual 0x%.8lx\n",
-				start_addr + offset*sizeof(vu_long),
-				pattern, temp);
-			errs++;
-			if (ctrlc())
-				return -1;
-		}
-	}
-	addr[test_offset] = pattern;
-	WATCHDOG_RESET();
-
-	/*
-	 * Check for addr bits stuck low or shorted.
-	 */
-	for (test_offset = 1; test_offset < num_words; test_offset <<= 1) {
-		addr[test_offset] = anti_pattern;
-
-		for (offset = 1; offset < num_words; offset <<= 1) {
-			temp = addr[offset];
-			if ((temp != pattern) && (offset != test_offset)) {
-				printf("\nFAILURE: Address bit stuck low or"
-					" shorted @ 0x%.8lx: expected 0x%.8lx,"
-					" actual 0x%.8lx\n",
-					start_addr + offset*sizeof(vu_long),
-					pattern, temp);
-				errs++;
-				if (ctrlc())
-					return -1;
-			}
-		}
-		addr[test_offset] = pattern;
-	}
-
-	/*
-	 * Description: Test the integrity of a physical
-	 *		memory device by performing an
-	 *		increment/decrement test over the
-	 *		entire region. In the process every
-	 *		storage bit in the device is tested
-	 *		as a zero and a one. The base address
-	 *		and the size of the region are
-	 *		selected by the caller.
-	 *
-	 * Returns:     0 if the test succeeds, 1 if the test fails.
-	 */
-	num_words++;
-
-	/*
-	 * Fill memory with a known pattern.
-	 */
-	for (pattern = 1, offset = 0; offset < num_words; pattern++, offset++) {
-		WATCHDOG_RESET();
-		addr[offset] = pattern;
-	}
-
-	/*
-	 * Check each location and invert it for the second pass.
-	 */
-	for (pattern = 1, offset = 0; offset < num_words; pattern++, offset++) {
-		WATCHDOG_RESET();
-		temp = addr[offset];
-		if (temp != pattern) {
-			printf("\nFAILURE (read/write) @ 0x%.8lx:"
-				" expected 0x%.8lx, actual 0x%.8lx)\n",
-				start_addr + offset*sizeof(vu_long),
-				pattern, temp);
-			errs++;
-			if (ctrlc())
-				return -1;
-		}
-
-		anti_pattern = ~pattern;
-		addr[offset] = anti_pattern;
-	}
-
-	/*
-	 * Check each location for the inverted pattern and zero it.
-	 */
-	for (pattern = 1, offset = 0; offset < num_words; pattern++, offset++) {
-		WATCHDOG_RESET();
-		anti_pattern = ~pattern;
-		temp = addr[offset];
-		if (temp != anti_pattern) {
-			printf("\nFAILURE (read/write): @ 0x%.8lx:"
-				" expected 0x%.8lx, actual 0x%.8lx)\n",
-				start_addr + offset*sizeof(vu_long),
-				anti_pattern, temp);
-			errs++;
-			if (ctrlc())
-				return -1;
-		}
-		addr[offset] = 0;
-	}
-
-	return errs;
-}
-
-static ulong mem_test_quick(vu_long *buf, ulong start_addr, ulong end_addr,
-			    vu_long pattern, int iteration)
-{
-	vu_long *end;
-	vu_long *addr;
-	ulong errs = 0;
-	ulong incr, length;
-	ulong val, readback;
-
-	/* Alternate the pattern */
-	incr = 1;
-	if (iteration & 1) {
-		incr = -incr;
-		/*
-		 * Flip the pattern each time to make lots of zeros and
-		 * then, the next time, lots of ones.  We decrement
-		 * the "negative" patterns and increment the "positive"
-		 * patterns to preserve this feature.
-		 */
-		if (pattern & 0x80000000)
-			pattern = -pattern;	/* complement & increment */
-		else
-			pattern = ~pattern;
-	}
-	length = (end_addr - start_addr) / sizeof(ulong);
-	end = buf + length;
-	printf("\rPattern %08lX  Writing..."
-		"%12s"
-		"\b\b\b\b\b\b\b\b\b\b",
-		pattern, "");
-
-	for (addr = buf, val = pattern; addr < end; addr++) {
-		WATCHDOG_RESET();
-		*addr = val;
-		val += incr;
-	}
-
-	puts("Reading...");
-
-	for (addr = buf, val = pattern; addr < end; addr++) {
-		WATCHDOG_RESET();
-		readback = *addr;
-		if (readback != val) {
-			ulong offset = addr - buf;
-
-			printf("\nMem error @ 0x%08X: "
-				"found %08lX, expected %08lX\n",
-				(uint)(uintptr_t)(start_addr + offset*sizeof(vu_long)),
-				readback, val);
-			errs++;
-			if (ctrlc())
-				return -1;
-		}
-		val += incr;
-	}
-
-	return errs;
-}
 
 /*
  * Perform a memory test. A more complete alternative test can be
@@ -863,23 +581,19 @@ static ulong mem_test_quick(vu_long *buf, ulong start_addr, ulong end_addr,
 static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 			char * const argv[])
 {
-	unsigned long long int start, end, debug_var;
-	unsigned long long int *buf;
-	int i = 0, ret = 0;
-	ulong errs = 0;	/* number of errors, or -1 if interrupted */
-	unsigned long test, test_id;
-	unsigned char stop;
-#if defined(CONFIG_SYS_ALT_MEMTEST)
-	//const int alt_test = 1;
-#else
-	//const int alt_test = 0;
-#endif
-
-	//start = CONFIG_SYS_MEMTEST_START;
-	//end = CONFIG_SYS_MEMTEST_END;
-
-	printf ("sizeof(start) = %d\n", sizeof(start));
+	//unsigned long long int start, end, debug_var;
+	ulong start = 0, end = 0, stop = 0;
 	
+	ulong *buf;
+	int i = 0, ret = 0;
+	//ulong errs = 0;	/* number of errors, or -1 if interrupted */
+	unsigned long test = 0, test_id = 0;
+
+	buf = map_sysmem(start, end - start);
+	start = (ulong)buf;
+	end = start + end;
+
+
 	if (argc > 1)
 		if (strict_strtoul(argv[1], 16, &test) < 0)
 		  {
@@ -896,13 +610,13 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 	if (argc > 3)
 		if (strict_strtoul(argv[3], 16, &start) < 0)
 		{
-			printf ("Error parsing start=%llx \n", start);
+			printf ("Error parsing start=%08lx \n", start);
 			return CMD_RET_USAGE;
 		}
 	if (argc > 4)
 		if (strict_strtoul(argv[4], 16, &end) < 0)
 		{
-			printf ("Error parsing end=%llx \n", end);
+			printf ("Error parsing end=%08lx \n", end);
 			return CMD_RET_USAGE;
 		}
 
@@ -910,19 +624,37 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 		printf("Refusing to do empty test\n");
 		return -1;
 	}
-	buf = map_sysmem(start, end - start);
-	icache_disable();
-	dcache_disable();
-	printf("Testing %llx ... %llx:\n", start, end);
-	//addr_tst0(buf, 0xbef66910, 0xbef6691f, stop);
-	//addr_tst0(buf, 0x0, 0x10000, stop);
-	//addr_tst0(buf, 0xbef66910, 0xbef6691f, 1);
-	//addr_tst0(buf, 0x0, 0xfffff, 1);
-	//addr_tst0(buf, 0xbef66910, 0xbf14c678, stop);
-	//addr_tst1(buf, 0xbef66910, 0xbf14c678, stop);
-	//addr_tst1(buf, 0x0, 0x50, 1);
-	//addr_tst1(buf, 0x3b9aca00, 0x3b9bca00, stop);
+
+	printf("Testing %08lx ... %08lx:\n", start, end);
+	if (test == 0)
+	{
+		test_id = 0x03FF;
+		printf("All tests\n");
+	}
+	else
+	{
+		test_id = 0x0001 << (test - 1);
+	}
 	
+	if ((test_id & IS_MEMTEST_1) == IS_MEMTEST_1)
+	{
+		printf("addr_tst0: stop option = %lx, start = %08lx, end = %08lx\n", stop, start, end);
+		for (i = 1; i <= MEMTEST_ITERATION;i++)
+		{
+			printf("addr_tst0 iter = %d\n", i);
+			ret |= addr_tst1(start, end, stop);
+		}
+	}
+	if ((test_id & IS_MEMTEST_2) == IS_MEMTEST_2)
+	{
+		printf("addr_tst1: stop option = %lx, start = %08lx, end = %08lx\n", stop, start, end);
+		for (i = 1; i <= MEMTEST_ITERATION;i++)
+		{
+			printf("addr_tst1 iter = %d\n", i);
+			ret |= addr_tst2(start, end, stop);
+		}
+	}
+	return ret;
 }
 #endif	/* CONFIG_CMD_MEMTEST */
 
