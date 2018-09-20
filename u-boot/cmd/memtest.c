@@ -133,3 +133,63 @@ unsigned char addr_tst2(ulong start, ulong end, char stop_after_err)
 	}
 	return(0);
 }
+
+unsigned char movinv (int iter, ulong start, ulong end, unsigned char stop_after_err)
+{
+	int i;
+	int test_num = 3;
+	ulong *p, *pe;
+	ulong p1 = 0xA5A5A5A5A5A5A5A5;
+	
+	p = (ulong*)start;
+	pe = (ulong*)end;
+
+	/* Initialize memory with the initial pattern.  */
+	for (; p <= pe; p++) 
+	{
+		*p = p1;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif
+	}
+	
+	/* Do moving inversions test. Check for initial pattern and then
+	 * write the complement for each memory location. Test from bottom
+	 * up and then from the top down.  */
+	for (i=0; i<iter; i++) 
+	{
+		p = (ulong*)start;
+		pe = (ulong*)end;
+		for (; p <= pe; p++) 
+		{
+			if (*p != p1) 
+			{
+				error((unsigned long long int)p, p1, *p, test_num);
+				if (stop_after_err == 1)
+				{			
+					return(1);	
+				}
+			}
+			*p = ~p1;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif
+		}
+		
+		p = (ulong*)start;
+		pe = (ulong*)end;
+		do 
+		{			
+			if (*p != ~p1) 
+			{
+				error((unsigned long long int)p, ~p1, *p, test_num);
+				if (stop_after_err == 1)
+				{
+					return(1);	
+				}
+			}
+			*p = p1;
+		} while (--p >= pe);
+	}
+	return(0);
+}

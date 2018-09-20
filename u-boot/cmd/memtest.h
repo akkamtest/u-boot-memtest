@@ -36,4 +36,8 @@ void mtest_debug(int test_num, ulong adr, ulong value);
 unsigned char addr_tst1(ulong start, ulong end, unsigned char stop_after_err);
 //unsigned char addr_tst1(unsigned long long int start, unsigned long long int end, char stop_after_err);
 unsigned char addr_tst2(ulong start, ulong end, char stop_after_err);
+
+unsigned char movinv (int iter, ulong start, ulong end, unsigned char stop_after_err);
+
+
 #endif /* _TEST_H_ */

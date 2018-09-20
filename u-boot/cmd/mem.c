@@ -654,6 +654,12 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 			ret |= addr_tst2(start, end, stop);
 		}
 	}
+	if ((test_id & IS_MEMTEST_3) == IS_MEMTEST_3)
+	{
+		printf("movinv: stop option = %lx, start = %08lx, end = %08lx, number of iteration = %d\n", stop, start, end, MEMTEST_ITERATION);
+		ret |= movinv (MEMTEST_ITERATION, start, end, stop);
+	}
+
 	return ret;
 }
 #endif	/* CONFIG_CMD_MEMTEST */
