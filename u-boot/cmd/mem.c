@@ -687,6 +687,15 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 			ret |= rand_seq(i, start, end, stop);
 		}
 	}
+	if ((test_id & IS_MEMTEST_9) == IS_MEMTEST_9)
+	{
+		printf("modtst: stop option = %lx, start = %08lx, end = %08lx\n", stop, start, end);
+		for (i = 1; i <= MOD_SZ;i++)			
+		{
+			printf("modtst iter = %d\n", i);
+			ret |= modtst(i-1, MEMTEST_ITERATION, 0xA5A5A5A5A5A5A5A5, 0x5A5A5A5A5A5A5A5A, start, end, stop);
+		}	
+	}
 	return ret;
 }
 #endif	/* CONFIG_CMD_MEMTEST */

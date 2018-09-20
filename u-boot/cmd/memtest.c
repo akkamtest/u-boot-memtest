@@ -504,3 +504,69 @@ unsigned char rand_seq(unsigned char iter_rand, ulong start, ulong end, unsigned
 	}
 	return(0);
 }
+
+
+unsigned char modtst(int offset, int iter, ulong p1, ulong p2, ulong start, ulong end, unsigned char stop_after_err)
+{
+	int k, l;
+	int test_num = 9;
+	ulong *p;
+	ulong *pe;
+	end -= MOD_SZ * 8;	/* adjust the ending address */
+	
+	/* Enable cache */
+	icache_enable();
+	dcache_enable();
+	
+	/* Initialise tested memory range */
+	p = (ulong*)start + offset;
+	pe = (ulong*)end;
+	
+	for (; p <= pe; p += MOD_SZ)
+	{
+		*p = p1;		
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif	
+	} 
+
+	/* Write the rest of memory "iter" times with the pattern complement */
+	for (l=0; l<iter; l++) 
+	{
+		//calculate_chunk(&start, &end);
+		p = (ulong*)start;
+		pe = (ulong*)end;
+		k = 0;
+
+		for (; p <= pe; p++) 
+		{
+			if (k != offset)
+			{
+				*p = p2;
+			}
+			if (++k > MOD_SZ-1)
+			{
+				k = 0;
+			}
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif	
+		}
+	}
+	
+	p = (ulong*)start + offset;
+	pe = (ulong*)end;
+	end -= MOD_SZ*8;	/* adjust the ending address */
+	for (; p <= pe; p += MOD_SZ) 
+	{
+		if (*p != p1) 
+		{
+			error((ulong)p, p1, *p, test_num);
+		}
+		if (stop_after_err == 1)
+		{
+			return(1);	
+		}
+	}
+	return(0);
+}
