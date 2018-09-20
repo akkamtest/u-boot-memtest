@@ -29,6 +29,10 @@ DECLARE_GLOBAL_DATA_PTR;
 #define CONFIG_SYS_MEMTEST_SCRATCH 0
 #endif
 
+#ifdef CONFIG_CMD_MEMTEST
+#include "memtest.h"
+#endif
+
 static int mod_mem(cmd_tbl_t *, int, int, int, char * const []);
 
 /* Display values from last command.
@@ -859,93 +863,60 @@ static ulong mem_test_quick(vu_long *buf, ulong start_addr, ulong end_addr,
 static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 			char * const argv[])
 {
-	ulong start, end;
-	vu_long *buf, *dummy;
-	ulong iteration_limit = 0;
-	int ret;
+	unsigned long long int start, end, debug_var;
+	unsigned long long int *buf;
+	int i = 0, ret = 0;
 	ulong errs = 0;	/* number of errors, or -1 if interrupted */
-	ulong pattern = 0;
-	int iteration;
+	unsigned long test, test_id;
+	unsigned char stop;
 #if defined(CONFIG_SYS_ALT_MEMTEST)
-	const int alt_test = 1;
+	//const int alt_test = 1;
 #else
-	const int alt_test = 0;
+	//const int alt_test = 0;
 #endif
 
-	start = CONFIG_SYS_MEMTEST_START;
-	end = CONFIG_SYS_MEMTEST_END;
+	//start = CONFIG_SYS_MEMTEST_START;
+	//end = CONFIG_SYS_MEMTEST_END;
 
 	if (argc > 1)
-		if (strict_strtoul(argv[1], 16, &start) < 0)
+		if (strict_strtoul(argv[1], 16, &test) < 0)
+		  {
+			printf ("'Error parsing test\n");
 			return CMD_RET_USAGE;
-
+		}
 	if (argc > 2)
-		if (strict_strtoul(argv[2], 16, &end) < 0)
+		if (strict_strtoul(argv[2], 16, &stop) < 0)
+		{
+			printf ("'Error parsing stop\n");
 			return CMD_RET_USAGE;
-
+		}				
+	
 	if (argc > 3)
-		if (strict_strtoul(argv[3], 16, &pattern) < 0)
+		if (strict_strtoul(argv[3], 16, &start) < 0)
+		{
+			printf ("Error parsing start=%llx \n", start);
 			return CMD_RET_USAGE;
-
+		}
 	if (argc > 4)
-		if (strict_strtoul(argv[4], 16, &iteration_limit) < 0)
+		if (strict_strtoul(argv[4], 16, &end) < 0)
+		{
+			printf ("Error parsing end=%llx \n", end);
 			return CMD_RET_USAGE;
+		}
 
 	if (end < start) {
 		printf("Refusing to do empty test\n");
 		return -1;
 	}
-
-	printf("Testing %08lx ... %08lx:\n", start, end);
-	debug("%s:%d: start %#08lx end %#08lx\n", __func__, __LINE__,
-	      start, end);
-
 	buf = map_sysmem(start, end - start);
-	dummy = map_sysmem(CONFIG_SYS_MEMTEST_SCRATCH, sizeof(vu_long));
-	for (iteration = 0;
-			!iteration_limit || iteration < iteration_limit;
-			iteration++) {
-		if (ctrlc()) {
-			errs = -1UL;
-			break;
-		}
-
-		printf("Iteration: %6d\r", iteration + 1);
-		debug("\n");
-		if (alt_test) {
-			errs = mem_test_alt(buf, start, end, dummy);
-		} else {
-			errs = mem_test_quick(buf, start, end, pattern,
-					      iteration);
-		}
-		if (errs == -1UL)
-			break;
-	}
-
-	/*
-	 * Work-around for eldk-4.2 which gives this warning if we try to
-	 * case in the unmap_sysmem() call:
-	 * warning: initialization discards qualifiers from pointer target type
-	 */
-	{
-		void *vbuf = (void *)buf;
-		void *vdummy = (void *)dummy;
-
-		unmap_sysmem(vbuf);
-		unmap_sysmem(vdummy);
-	}
-
-	if (errs == -1UL) {
-		/* Memory test was aborted - write a newline to finish off */
-		putc('\n');
-		ret = 1;
-	} else {
-		printf("Tested %d iteration(s) with %lu errors.\n",
-			iteration, errs);
-		ret = errs != 0;
-	}
-
-	return ret;
+	icache_disable();
+	dcache_disable();
+	printf("Testing %llx ... %llx:\n", start, end);
+	addr_tst0(buf, 0xbef66910, 0xbf14c678, stop);
+	addr_tst1(buf, 0xbef66910, 0xbf14c678, stop);
+	addr_tst1(buf, 0x0, 0x1000, stop);
+	//addr_tst1(buf, 0x3b9aca00, 0x3b9bca00, stop);
+	
 }
 #endif	/* CONFIG_CMD_MEMTEST */
 
@@ -1218,8 +1189,8 @@ U_BOOT_CMD(
 #ifdef CONFIG_CMD_MEMTEST
 U_BOOT_CMD(
 	mtest,	5,	1,	do_mem_mtest,
-	"simple RAM read/write test",
-	"[start [end [pattern [iterations]]]]"
+	"TEST RAM",
+	"[test [stop [start [end]]]"
 );
 #endif	/* CONFIG_CMD_MEMTEST */
 
