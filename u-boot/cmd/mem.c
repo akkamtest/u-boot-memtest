@@ -678,6 +678,15 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 			ret |= movinv64(start, end, stop);
 		}
 	}
+	if ((test_id & IS_MEMTEST_8) == IS_MEMTEST_8)
+	{
+		printf("rand_seq: stop option = %lx, start = %08lx, end = %08lx\n", stop, start, end);
+		for (i = 1; i <= MEMTEST_ITERATION;i++)
+		{
+			printf("rand_seq iter = %d\n", i);
+			ret |= rand_seq(i, start, end, stop);
+		}
+	}
 	return ret;
 }
 #endif	/* CONFIG_CMD_MEMTEST */

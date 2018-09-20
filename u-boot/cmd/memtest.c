@@ -347,6 +347,10 @@ unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err)
 	ulong tab[64];
 	unsigned char tab_compl = 0;
 	
+	/* Enable cache */
+	icache_enable();
+	dcache_enable();
+	
 	/* Initialise tested memory range */
 	p = (ulong*)start;
 	pe = (ulong*)end;
@@ -429,11 +433,7 @@ unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err)
 				return(1);	
 			}
 		}
-		
 		*p = pat;
-#ifdef DEBUG_MEMTEST
-		mtest_debug(test_num, (ulong)p, *p);
-#endif
 		if (p <= pe)
 		{
 			break;
@@ -445,5 +445,62 @@ unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err)
 		}
 	}
 
+	return(0);
+}
+
+unsigned char rand_seq(unsigned char iter_rand, ulong start, ulong end, unsigned char stop_after_err)
+{
+	int i;
+	ulong *p, *pe, num;
+	int test_num = 8;
+	
+	/* Enable cache */
+	icache_enable();
+	dcache_enable();
+	
+	reset_seed();
+	
+	/* Initialise tested memory range */
+	p = (ulong*)start;
+	pe = (ulong*)end;
+	
+	for (; p <= pe; p++) 
+	{
+		*p = rand1(iter_rand);
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif	
+	}
+
+
+	/* Do moving inversions test. Check for initial pattern and then
+	 * write the complement for each memory location. */
+	for (i=0; i<2; i++)
+	{
+		reset_seed();
+		p = (ulong*)start;
+		pe = (ulong*)end;
+	
+		for (; p <= pe; p++)
+		{			
+			num = rand1(iter_rand);
+			if (i)
+			{
+				num = ~num;
+			}
+			if (*p != num)
+			{
+				error((ulong)p, num, *p, test_num);
+				if (stop_after_err == 1)
+				{
+					return(1);	
+				}
+			}
+			*p = ~num;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif	
+		}
+	}
 	return(0);
 }

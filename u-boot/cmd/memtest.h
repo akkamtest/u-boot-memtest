@@ -45,4 +45,6 @@ unsigned char movinvr (int iter, ulong start, ulong end, unsigned char stop_afte
 
 unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err);
 
+unsigned char rand_seq(unsigned char iter_rand, ulong start, ulong end, unsigned char stop_after_err);
+
 #endif /* _TEST_H_ */
