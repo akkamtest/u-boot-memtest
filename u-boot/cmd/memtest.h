@@ -8,10 +8,10 @@
 
 #define MOD_SZ			   		20
 #define MEMTEST_MOD_OFFSET 		0
-#define MEMTEST_ITERATION  		1
+#define MEMTEST_ITERATION  		2
 #define MEMTEST_RAND_SEED_1		5
 #define MEMTEST_RAND_SEED_2		17
-#define MEMTEST_PATTERN_64_A	0xCAFEDECACAFEDECA
+#define MEMTEST_PATTERN_64_A	0xCAFEDECADECACAFE
 #define IS_MEMTEST_1		 	0x0001
 #define IS_MEMTEST_2		 	0x0002
 #define IS_MEMTEST_3		 	0x0004
@@ -39,5 +39,10 @@ unsigned char addr_tst2(ulong start, ulong end, char stop_after_err);
 
 unsigned char movinv (int iter, ulong start, ulong end, unsigned char stop_after_err);
 
+unsigned char movinv_8bit (int iter, ulong start, ulong end, ulong stop_after_err);
+
+unsigned char movinvr (int iter, ulong start, ulong end, unsigned char stop_after_err);
+
+unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err);
 
 #endif /* _TEST_H_ */

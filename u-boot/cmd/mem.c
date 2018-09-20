@@ -659,7 +659,25 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 		printf("movinv: stop option = %lx, start = %08lx, end = %08lx, number of iteration = %d\n", stop, start, end, MEMTEST_ITERATION);
 		ret |= movinv (MEMTEST_ITERATION, start, end, stop);
 	}
-
+	if ((test_id & IS_MEMTEST_4) == IS_MEMTEST_4)
+	{
+		printf("movinv_8bit: stop option = %lx, start = %08lx, end = %08lx, number of iteration = %d\n", stop, start, end, MEMTEST_ITERATION);
+		ret |= movinv_8bit (MEMTEST_ITERATION, start, end, stop);
+	}
+	if ((test_id & IS_MEMTEST_5) == IS_MEMTEST_5)
+	{
+		printf("movinvr: stop option = %lx, start = %08lx, end = %08lx, number of iteration = %d\n", stop, start, end, MEMTEST_ITERATION);
+		ret |= movinvr (MEMTEST_ITERATION, start, end, stop);
+	}
+	if ((test_id & IS_MEMTEST_7) == IS_MEMTEST_7)
+	{
+		printf("movinv64: stop option = %lx, start = %08lx, end = %08lx\n", stop, start, end);
+		for (i = 1; i <= MEMTEST_ITERATION;i++)
+		{
+			printf("movinv64 iter = %d\n", i);
+			ret |= movinv64(start, end, stop);
+		}
+	}
 	return ret;
 }
 #endif	/* CONFIG_CMD_MEMTEST */

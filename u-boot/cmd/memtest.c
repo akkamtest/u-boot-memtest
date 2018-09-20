@@ -141,9 +141,13 @@ unsigned char movinv (int iter, ulong start, ulong end, unsigned char stop_after
 	ulong *p, *pe;
 	ulong p1 = 0xA5A5A5A5A5A5A5A5;
 	
+	/* Enable cache */
+	icache_enable();
+	dcache_enable();
+	
 	p = (ulong*)start;
 	pe = (ulong*)end;
-
+	
 	/* Initialize memory with the initial pattern.  */
 	for (; p <= pe; p++) 
 	{
@@ -191,5 +195,255 @@ unsigned char movinv (int iter, ulong start, ulong end, unsigned char stop_after
 			*p = p1;
 		} while (--p >= pe);
 	}
+	return(0);
+}
+
+
+unsigned char movinv_8bit (int iter, ulong start, ulong end, ulong stop_after_err)
+{
+	int i;
+	int test_num = 4;
+	unsigned char *p, *pe;
+	unsigned char p1 = 0x0F;
+	unsigned char p2 = ~p1;
+
+	/* Enable cache */
+	icache_enable();
+	dcache_enable();
+	
+	p = (unsigned char*)start;
+	pe = (unsigned char*)end;
+	
+	/* Initialize memory with the initial pattern.  */
+	for (; p <= pe; p++)
+	{
+		*p = p1;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif
+	}
+	
+	/* Do moving inversions test. Check for initial pattern and then
+	 * write the complement for each memory location. Test from bottom
+	 * up and then from the top down.  */
+	for (i=0; i<iter; i++) 
+	{
+		p = (unsigned char*)start;
+		pe = (unsigned char*)end;
+
+		for (; p <= pe; p++) 
+		{
+			if (*p != p1) 
+			{
+				error((ulong)p, p1, (unsigned char)*p, test_num);
+				if (stop_after_err == 1)
+				{
+					return(1);	
+				}
+			}
+			*p = p2;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif
+		}
+		p = (unsigned char*)start;
+		pe = (unsigned char*)end;
+		do 
+		{
+			if (*p != p2) 
+			{
+				error((ulong)p, p2, (unsigned char)*p, test_num);
+				if (stop_after_err == 1)
+				{
+					return(1);	
+				}
+			}
+			*p = p1;
+		} while (--p >= pe);
+	}
+	return(0);
+}
+
+
+unsigned char movinvr (int iter, ulong start, ulong end, unsigned char stop_after_err)
+{
+	int i;
+	int test_num = 5;
+	ulong *p, *pe;
+	ulong p1;
+	
+	/* Enable cache */
+	icache_enable();
+	dcache_enable();
+	
+	/* Initialise random pattern */
+	reset_seed();
+	p1 = rand1(iter);
+
+	/* Initialise tested memory range */
+	p = (ulong*)start;
+	pe = (ulong*)end;
+	
+	/* Initialize memory with the initial pattern */
+	for (; p <= pe; p++) 
+	{
+		*p = p1;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif	
+	}
+
+	/* Do moving inversions test. Check for initial pattern and then
+	 * write the complement for each memory location. Test from bottom
+	 * up and then from the top down.  */
+	for (i=0; i<iter; i++) 
+	{
+		p = (ulong*)start;
+		pe = (ulong*)end;
+
+		for (; p <= pe; p++) 
+		{
+			if (*p != p1) 
+			{
+				error((ulong)p, p1, *p, test_num);
+				if (stop_after_err == 1)
+				{
+					return(1);	
+				}
+			}
+			*p = ~p1;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif
+		}
+
+		pe = (ulong*)start;
+		p = (ulong*)end;
+		do 
+		{
+			if (*p != ~p1) 
+			{
+				error((ulong)p, ~p1, *p, test_num);
+				if (stop_after_err == 1)
+				{
+					return(1);	
+				}
+			}
+			*p = p1;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif
+		} while (--p >= pe);
+	}
+	return(0);
+}
+
+
+unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err)
+{
+	int k=0;
+	ulong *p, *pe, pat, comp_pat, p1 = MEMTEST_PATTERN_64_A;
+	int test_num = 7;
+	ulong tab[64];
+	unsigned char tab_compl = 0;
+	
+	/* Initialise tested memory range */
+	p = (ulong*)start;
+	pe = (ulong*)end;
+
+	/* Initialize memory with the initial pattern.  */
+	k = 0;
+	pat = p1;	
+	while (p <= pe)
+	{
+		*p = pat;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif		
+		if (tab_compl == 0)
+		{
+			
+			tab[k] = pat;
+		}
+		
+		if (++k >= 64)
+		{
+			pat = p1;
+			k = 0;
+			tab_compl = 1;
+		}
+		else
+		{
+			pat = pat << 1;
+		}
+		p++;
+	}
+
+
+	/* Do moving inversions test. Check for initial pattern and then
+	 * write the complement for each memory location. Test from bottom
+	 * up and then from the top down.  */
+	p = (ulong*)start;
+	pe = (ulong*)end;
+	k = 0;
+	while (1)
+	{			
+		pat = tab[k];
+		if (*p != pat)
+		{
+			error((unsigned long long int)p, pat, *p, test_num);
+			if (stop_after_err == 1)
+			{
+				return(1);	
+			}
+		}
+		comp_pat = ~pat;
+		*p = comp_pat;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif
+		if (p >= pe)
+		{
+			break;
+		}
+		p++;
+
+		if (++k >= 64)
+		{
+			k = 0;
+		}
+
+	}
+
+	pe = (ulong*)start;
+	p = (ulong*)end;
+	while (1)
+	{		
+		pat = tab[k];
+		comp_pat = ~pat;	
+		if (*p != comp_pat)
+		{
+			error((unsigned long long int)p, comp_pat, *p, test_num+1);
+			if (stop_after_err == 1)
+			{
+				return(1);	
+			}
+		}
+		
+		*p = pat;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif
+		if (p <= pe)
+		{
+			break;
+		}
+		p--; 
+		if (--k < 0)
+		{
+			k = 63;
+		}
+	}
+
 	return(0);
 }
