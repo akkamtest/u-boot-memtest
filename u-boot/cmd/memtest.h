@@ -8,10 +8,12 @@
 
 #define MOD_SZ			   		20
 #define MEMTEST_MOD_OFFSET 		0
-#define MEMTEST_ITERATION  		2
+#define MEMTEST_ITERATION  		10
 #define MEMTEST_RAND_SEED_1		5
 #define MEMTEST_RAND_SEED_2		17
 #define MEMTEST_PATTERN_64_A	0xCAFEDECADECACAFE
+#define MEMTEST_PATTERN_64_B	0xA5A5A5A5A5A5A5A5
+#define MEMTEST_PATTERN_64_C	0x5A5A5A5A5A5A5A5A
 #define IS_MEMTEST_1		 	0x0001
 #define IS_MEMTEST_2		 	0x0002
 #define IS_MEMTEST_3		 	0x0004
@@ -49,4 +51,9 @@ unsigned char rand_seq(unsigned char iter_rand, ulong start, ulong end, unsigned
 
 unsigned char modtst(int offset, int iter, ulong p1, ulong p2, ulong start, ulong end, unsigned char stop_after_err);
 
+void bit_fade_fill(ulong p1, ulong start, ulong end);
+
+unsigned char bit_fade_chk(ulong p1, ulong start, ulong end, unsigned char stop_after_err);
+
+void wait (unsigned int sec);
 #endif /* _TEST_H_ */

@@ -71,8 +71,10 @@ unsigned char addr_tst1(ulong start, ulong end, unsigned char stop_after_err)
 	pe = (unsigned char *)end;	
 		
 	/* Disable cache */
+#ifdef CONFIG_CMD_CACHE	
 	icache_disable();
 	dcache_disable();
+#endif
 	
 	/* test each bit for all address */
 	for (; p <= pe; p++) 
@@ -142,8 +144,10 @@ unsigned char movinv (int iter, ulong start, ulong end, unsigned char stop_after
 	ulong p1 = 0xA5A5A5A5A5A5A5A5;
 	
 	/* Enable cache */
+#ifdef CONFIG_CMD_CACHE	
 	icache_enable();
 	dcache_enable();
+#endif
 	
 	p = (ulong*)start;
 	pe = (ulong*)end;
@@ -208,8 +212,10 @@ unsigned char movinv_8bit (int iter, ulong start, ulong end, ulong stop_after_er
 	unsigned char p2 = ~p1;
 
 	/* Enable cache */
+#ifdef CONFIG_CMD_CACHE	
 	icache_enable();
 	dcache_enable();
+#endif
 	
 	p = (unsigned char*)start;
 	pe = (unsigned char*)end;
@@ -273,8 +279,10 @@ unsigned char movinvr (int iter, ulong start, ulong end, unsigned char stop_afte
 	ulong p1;
 	
 	/* Enable cache */
+#ifdef CONFIG_CMD_CACHE	
 	icache_enable();
 	dcache_enable();
+#endif
 	
 	/* Initialise random pattern */
 	reset_seed();
@@ -348,8 +356,10 @@ unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err)
 	unsigned char tab_compl = 0;
 	
 	/* Enable cache */
+#ifdef CONFIG_CMD_CACHE	
 	icache_enable();
 	dcache_enable();
+#endif
 	
 	/* Initialise tested memory range */
 	p = (ulong*)start;
@@ -455,8 +465,10 @@ unsigned char rand_seq(unsigned char iter_rand, ulong start, ulong end, unsigned
 	int test_num = 8;
 	
 	/* Enable cache */
+#ifdef CONFIG_CMD_CACHE	
 	icache_enable();
 	dcache_enable();
+#endif
 	
 	reset_seed();
 	
@@ -515,8 +527,10 @@ unsigned char modtst(int offset, int iter, ulong p1, ulong p2, ulong start, ulon
 	end -= MOD_SZ * 8;	/* adjust the ending address */
 	
 	/* Enable cache */
+#ifdef CONFIG_CMD_CACHE	
 	icache_enable();
 	dcache_enable();
+#endif
 	
 	/* Initialise tested memory range */
 	p = (ulong*)start + offset;
@@ -569,4 +583,66 @@ unsigned char modtst(int offset, int iter, ulong p1, ulong p2, ulong start, ulon
 		}
 	}
 	return(0);
+}
+
+void bit_fade_fill(ulong p1, ulong start, ulong end)
+{
+	ulong *p, *pe;
+#ifdef DEBUG_MEMTEST
+	int test_num = 10;
+#endif	
+	/* Enable cache */
+#ifdef CONFIG_CMD_CACHE	
+	icache_enable();
+	dcache_enable();
+#endif
+		
+	/* Initialise tested memory range */
+	p = (ulong*)start;
+	pe = (ulong*)end;
+	
+	/* Initialize memory with the initial pattern. */		
+	for (; p <= pe;p++)
+	{
+		*p = p1;
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (ulong)p, *p);
+#endif	
+	}
+}
+	
+unsigned char bit_fade_chk(ulong p1, ulong start, ulong end, unsigned char stop_after_err)
+{
+	ulong *p, *pe, bad;
+	int test_num = 10;
+			
+	/* Initialise tested memory range */
+	p = (ulong *)start;
+	pe = (ulong *)end;
+
+	/* Make sure that nothing changed while sleeping */
+	for (; p <= pe;p++)
+	{
+		if ((bad=*p) != p1)
+		{
+			error((ulong)p, p1, bad, test_num);
+			if (stop_after_err == 1)
+			{
+				return(1);	
+			}
+		}
+	}
+	return(0);
+}
+
+void wait (unsigned int sec)
+{
+	ulong t, wait;
+	wait = 50000 * sec;
+	for ( t = 1; t <= wait; t++)
+	{
+		printf("\rusec: %lx", t*10);
+	}
+	printf("\n");
+	return;
 }

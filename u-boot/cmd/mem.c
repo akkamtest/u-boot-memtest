@@ -692,9 +692,25 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 		printf("modtst: stop option = %lx, start = %08lx, end = %08lx\n", stop, start, end);
 		for (i = 1; i <= MOD_SZ;i++)			
 		{
-			printf("modtst iter = %d\n", i);
-			ret |= modtst(i-1, MEMTEST_ITERATION, 0xA5A5A5A5A5A5A5A5, 0x5A5A5A5A5A5A5A5A, start, end, stop);
+			printf("modtst offset = %d\n", i);
+			ret |= modtst(i-1, MEMTEST_ITERATION, MEMTEST_PATTERN_64_B, MEMTEST_PATTERN_64_C, start, end, stop);
 		}	
+	}
+	if ((test_id & IS_MEMTEST_10) == IS_MEMTEST_10)
+	{
+		printf("bit_fade: stop option = %lx, start = %08lx, end = %08lx\n", stop, start, end);
+		for (i = 1; i <= MEMTEST_ITERATION;i++)
+		{
+			printf("bit_fade iter = %d\n", i);
+			bit_fade_fill(MEMTEST_PATTERN_64_B, start, end);
+			wait(2);
+			printf("wait\n");
+			ret |= bit_fade_chk(MEMTEST_PATTERN_64_B, start, end, stop);
+			bit_fade_fill(MEMTEST_PATTERN_64_C, start, end);
+			wait(2);
+			printf("wait\n");
+			ret |= bit_fade_chk(MEMTEST_PATTERN_64_C, start, end, stop);
+		}
 	}
 	return ret;
 }
