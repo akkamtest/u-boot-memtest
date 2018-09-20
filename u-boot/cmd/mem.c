@@ -878,6 +878,8 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 	//start = CONFIG_SYS_MEMTEST_START;
 	//end = CONFIG_SYS_MEMTEST_END;
 
+	printf ("sizeof(start) = %d\n", sizeof(start));
+	
 	if (argc > 1)
 		if (strict_strtoul(argv[1], 16, &test) < 0)
 		  {
@@ -912,9 +914,13 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 	icache_disable();
 	dcache_disable();
 	printf("Testing %llx ... %llx:\n", start, end);
-	addr_tst0(buf, 0xbef66910, 0xbf14c678, stop);
-	addr_tst1(buf, 0xbef66910, 0xbf14c678, stop);
-	addr_tst1(buf, 0x0, 0x1000, stop);
+	//addr_tst0(buf, 0xbef66910, 0xbef6691f, stop);
+	//addr_tst0(buf, 0x0, 0x10000, stop);
+	//addr_tst0(buf, 0xbef66910, 0xbef6691f, 1);
+	//addr_tst0(buf, 0x0, 0xfffff, 1);
+	//addr_tst0(buf, 0xbef66910, 0xbf14c678, stop);
+	//addr_tst1(buf, 0xbef66910, 0xbf14c678, stop);
+	//addr_tst1(buf, 0x0, 0x50, 1);
 	//addr_tst1(buf, 0x3b9aca00, 0x3b9bca00, stop);
 	
 }

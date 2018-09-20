@@ -4,6 +4,9 @@
 #include <common.h>
 #include "memtest.h"
 
+// Uncomment for debug
+#define DEBUG_MEMTEST 1
+
 static unsigned long long int SEED_A;
 static unsigned long long int SEED_B;
 static unsigned long long int SEED_C;
@@ -43,13 +46,15 @@ void error(unsigned long long int adr, unsigned long long int good, unsigned lon
 	printf ("		>Obtained value : %llx\n", bad);	
 }
 
-/*  Allows to visualize which test return the error, the faulty address and the difference between the expected value and the one read */
-void mtest_debug(int test_num, unsigned long long int adr, unsigned long long int value)
+#ifdef DEBUG_MEMTEST
+	/*  Allows to visualize which test return the error, the faulty address and the difference between the expected value and the one read */
+	void mtest_debug(int test_num, unsigned long long int adr, unsigned long long int value)
 {
 	printf ("TEST number: %d\n", test_num);
 	printf ("	> Address: %llx\n", adr);
 	printf ("	> Value  : %llx\n", value);	
 }
+#endif
 
 /* Walking ones */
 /* Test 0 [Address test, 8bits walking ones, no cache] */
@@ -71,6 +76,7 @@ unsigned char addr_tst0(unsigned long long int *buf, unsigned long long int star
 	/* test each bit for all address */
 	for (; p <= pe; p++) 
 	{
+		//mtest_debug(test_num, (unsigned long long int)p, *p);
 		for (i = 0; i<8; i++) 
 		{
 			mask = 1<<i;
@@ -85,6 +91,7 @@ unsigned char addr_tst0(unsigned long long int *buf, unsigned long long int star
 				}
 			}
 		}
+		//mtest_debug(test_num, (unsigned long long int)p, *p);
 	}
 	return(0);
 }
@@ -105,7 +112,9 @@ unsigned char addr_tst1(unsigned long long int *buf, unsigned long long int star
 	for (; p <= pe; p++) 
 	{		
 		*p = (unsigned long long int)p;
-		//mtest_debug(test_num, (unsigned long long int)p, *p);
+#ifdef DEBUG_MEMTEST
+		mtest_debug(test_num, (unsigned long long int)p, *p);
+#endif
 	}
 
 	/* Each address should have its own address */

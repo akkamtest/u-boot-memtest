@@ -1,0 +1,1580 @@
+versions pytest-3.8.0, py-1.6.0, python-2.7.12.final.0
+cwd=/home/bruno.david/testfunction/pytest_c_testrunner-master
+args=['-v', '--debug']
+
+  pytest_cmdline_main [hook]
+      config: <_pytest.config.Config object at 0x7f068b15b910>
+    pytest_plugin_registered [hook]
+        manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+        plugin: <Session 'pytest_c_testrunner-master'>
+    finish pytest_plugin_registered --> [] [hook]
+    pytest_configure [hook]
+        config: <_pytest.config.Config object at 0x7f068b15b910>
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x7f068abca190>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x7f068abca290>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f068abca2d0>
+      finish pytest_plugin_registered --> [] [hook]
+    early skip of rewriting module: py._io.terminalwriter [assertion]
+    early skip of rewriting module: py._io.unicodedata [assertion]
+    early skip of rewriting module: unicodedata [assertion]
+    early skip of rewriting module: py._io.termios [assertion]
+    early skip of rewriting module: termios [assertion]
+    early skip of rewriting module: py._io.fcntl [assertion]
+    early skip of rewriting module: py._io.struct [assertion]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.config.Config object at 0x7f068b15b910>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.mark' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/mark/__init__.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.main' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/main.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.terminal' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/terminal.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.runner' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/runner.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.python' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/python.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.fixtures' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/fixtures.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.debugging' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/debugging.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.unittest' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/unittest.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.capture' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/capture.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.skipping' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/skipping.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.tmpdir' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/tmpdir.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.monkeypatch' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/monkeypatch.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.recwarn' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/recwarn.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.pastebin' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/pastebin.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.helpconfig' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/helpconfig.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.nose' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/nose.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.assertion' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/assertion/__init__.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.junitxml' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/junitxml.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.resultlog' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/resultlog.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.doctest' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/doctest.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.cacheprovider' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/cacheprovider.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.freeze_support' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/freeze_support.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.setuponly' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/setuponly.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.setupplan' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/setupplan.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.warnings' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/warnings.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.logging' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/logging.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.capture.CaptureManager object at 0x7f068ac2ae10>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module 'conftest' from '/home/bruno.david/testfunction/pytest_c_testrunner-master/conftest.py'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <Session 'pytest_c_testrunner-master'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x7f068abca190>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x7f068abca290>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f068abca2d0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.terminal.TerminalReporter object at 0x7f068abca910>
+      finish pytest_plugin_registered --> [] [hook]
+    finish pytest_configure --> [] [hook]
+    pytest_sessionstart [hook]
+        session: <Session 'pytest_c_testrunner-master'>
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.config.Config object at 0x7f068b15b910>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.mark' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/mark/__init__.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.main' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/main.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.terminal' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/terminal.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.runner' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/runner.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.python' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/python.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.fixtures' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/fixtures.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.debugging' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/debugging.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.unittest' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/unittest.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.capture' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/capture.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.skipping' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/skipping.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.tmpdir' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/tmpdir.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.monkeypatch' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/monkeypatch.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.recwarn' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/recwarn.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.pastebin' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/pastebin.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.helpconfig' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/helpconfig.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.nose' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/nose.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.assertion' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/assertion/__init__.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.junitxml' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/junitxml.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.resultlog' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/resultlog.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.doctest' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/doctest.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.cacheprovider' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/cacheprovider.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.freeze_support' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/freeze_support.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.setuponly' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/setuponly.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.setupplan' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/setupplan.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.warnings' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/warnings.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module '_pytest.logging' from '/home/bruno.david/.local/lib/python2.7/site-packages/_pytest/logging.pyc'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.capture.CaptureManager object at 0x7f068ac2ae10>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <module 'conftest' from '/home/bruno.david/testfunction/pytest_c_testrunner-master/conftest.py'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <Session 'pytest_c_testrunner-master'>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x7f068abca190>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x7f068abca290>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f068abca2d0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.terminal.TerminalReporter object at 0x7f068abca910>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          manager: <_pytest.config.PytestPluginManager object at 0x7f068dcbb390>
+          plugin: <_pytest.fixtures.FixtureManager object at 0x7f068abd4b90>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_report_header [hook]
+          startdir: /home/bruno.david/testfunction/pytest_c_testrunner-master
+          config: <_pytest.config.Config object at 0x7f068b15b910>
+      finish pytest_report_header --> [['rootdir: /home/bruno.david/testfunction/pytest_c_testrunner-master, inifile:'], 'cachedir: .pytest_cache', ['using: pytest-3.8.0 pylib-1.6.0']] [hook]
+    finish pytest_sessionstart --> [] [hook]
+    pytest_collection [hook]
+        session: <Session 'pytest_c_testrunner-master'>
+    perform_collect <Session 'pytest_c_testrunner-master'> ['/home/bruno.david/testfunction/pytest_c_testrunner-master'] [collection]
+        pytest_collectstart [hook]
+            collector: <Session 'pytest_c_testrunner-master'>
+        finish pytest_collectstart --> [] [hook]
+        pytest_make_collect_report [hook]
+            collector: <Session 'pytest_c_testrunner-master'>
+        processing argument /home/bruno.david/testfunction/pytest_c_testrunner-master [collection]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/__pycache__
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/__pycache__
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/.pytest_cache
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/.gitignore
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/.gitignore
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/.travis.yml
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/.travis.yml
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/LICENSE.txt
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/LICENSE.txt
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/Makefile
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/Makefile
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/Readme.md
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/Readme.md
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/conftest.py
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/conftest.py
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/pytestdebug.log
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/pytestdebug.log
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/__pycache__/conftest.cpython-27-PYTEST.pyc
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/__pycache__/conftest.cpython-27-PYTEST.pyc
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/Makefile
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/Makefile
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_static
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_static
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_images
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_images
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/c_unit_test.rst
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/c_unit_test.rst
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/conf.py
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/conf.py
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/conftest.rst
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/conftest.rst
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/index.rst
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/index.rst
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/learn_more.rst
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/learn_more.rst
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/running.rst
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/running.rst
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_images/output.png
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_images/output.png
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_static/pygments.css
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_static/pygments.css
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/globaltoc.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/globaltoc.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/layout.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/layout.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/localtoc.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/localtoc.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/navbar-2.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/navbar-2.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/navbar.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/navbar.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/navbarsearchbox.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/navbarsearchbox.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/navbartoc.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/navbartoc.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/relations.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/relations.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/search.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/search.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/searchbox.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/searchbox.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/searchresults.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/searchresults.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/sourcelink.html
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/sourcelink.html
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/theme.conf
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/theme.conf
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-sphinx.css_t
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-sphinx.css_t
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-sphinx.js_t
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-sphinx.js_t
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/js
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_directory [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/js
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_directory --> None [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css/bootstrap-theme.css
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css/bootstrap-theme.css
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css/bootstrap-theme.min.css
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css/bootstrap-theme.min.css
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css/bootstrap.css
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css/bootstrap.css
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css/bootstrap.min.css
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/css/bootstrap.min.css
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts/glyphicons-halflings-regular.eot
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts/glyphicons-halflings-regular.eot
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts/glyphicons-halflings-regular.svg
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts/glyphicons-halflings-regular.svg
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts/glyphicons-halflings-regular.ttf
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts/glyphicons-halflings-regular.ttf
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts/glyphicons-halflings-regular.woff
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/fonts/glyphicons-halflings-regular.woff
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/js/bootstrap.js
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/js/bootstrap.js
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/js/bootstrap.min.js
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/bootstrap-3.0.0/js/bootstrap.min.js
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js/jquery-1.9.1.js
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js/jquery-1.9.1.js
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js/jquery-1.9.1.min.js
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js/jquery-1.9.1.min.js
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js/jquery-fix.js
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js/jquery-fix.js
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js/jquery.min.map
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/docs/source/_themes/bootstrap/static/js/jquery.min.map
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/Makefile
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/Makefile
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_basic_integers
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_basic_integers
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_basic_integers.c
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_basic_integers.c
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [<CTestFile 'test/test_basic_integers.c'>] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_basic_strings
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_basic_strings
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_basic_strings.c
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_basic_strings.c
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [<CTestFile 'test/test_basic_strings.c'>] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_macros.h
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_macros.h
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_passing
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_passing
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [] [hook]
+            pytest_ignore_collect [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_passing.c
+                config: <_pytest.config.Config object at 0x7f068b15b910>
+            finish pytest_ignore_collect --> False [hook]
+            pytest_collect_file [hook]
+                path: /home/bruno.david/testfunction/pytest_c_testrunner-master/test/test_passing.c
+                parent: <Session 'pytest_c_testrunner-master'>
+            finish pytest_collect_file --> [<CTestFile 'test/test_passing.c'>] [hook]
+        finish pytest_make_collect_report --> <CollectReport '' lenresult=3 outcome='passed'> [hook]
+        pytest_collectreport [hook]
+            report: <CollectReport '' lenresult=3 outcome='passed'>
+        finish pytest_collectreport --> [] [hook]
+    genitems <CTestFile 'test/test_basic_integers.c'> [collection]
+      pytest_collectstart [hook]
+          collector: <CTestFile 'test/test_basic_integers.c'>
+      finish pytest_collectstart --> [] [hook]
+      pytest_make_collect_report [hook]
+          collector: <CTestFile 'test/test_basic_integers.c'>
+      early skip of rewriting module: encodings.ascii [assertion]
+      finish pytest_make_collect_report --> <CollectReport 'test/test_basic_integers.c' lenresult=4 outcome='passed'> [hook]
+    genitems <CTestItem u'test_some_integers()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_some_integers()'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <CTestItem u'test_some_integers()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_some_integers()'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <CTestItem u'test_more_integers()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_more_integers()'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <CTestItem u'test_more_integers()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_more_integers()'>
+      finish pytest_itemcollected --> [] [hook]
+      pytest_collectreport [hook]
+          report: <CollectReport 'test/test_basic_integers.c' lenresult=4 outcome='passed'>
+      finish pytest_collectreport --> [] [hook]
+    genitems <CTestFile 'test/test_basic_strings.c'> [collection]
+      pytest_collectstart [hook]
+          collector: <CTestFile 'test/test_basic_strings.c'>
+      finish pytest_collectstart --> [] [hook]
+      pytest_make_collect_report [hook]
+          collector: <CTestFile 'test/test_basic_strings.c'>
+      finish pytest_make_collect_report --> <CollectReport 'test/test_basic_strings.c' lenresult=5 outcome='passed'> [hook]
+    genitems <CTestItem u'test_some_strings()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_some_strings()'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <CTestItem u'test_some_strings()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_some_strings()'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <CTestItem u'test_more_strings()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_more_strings()'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <CTestItem u'test_more_strings()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_more_strings()'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <CTestItem u'test_more_strings()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_more_strings()'>
+      finish pytest_itemcollected --> [] [hook]
+      pytest_collectreport [hook]
+          report: <CollectReport 'test/test_basic_strings.c' lenresult=5 outcome='passed'>
+      finish pytest_collectreport --> [] [hook]
+    genitems <CTestFile 'test/test_passing.c'> [collection]
+      pytest_collectstart [hook]
+          collector: <CTestFile 'test/test_passing.c'>
+      finish pytest_collectstart --> [] [hook]
+      pytest_make_collect_report [hook]
+          collector: <CTestFile 'test/test_passing.c'>
+      finish pytest_make_collect_report --> <CollectReport 'test/test_passing.c' lenresult=2 outcome='passed'> [hook]
+    genitems <CTestItem u'test_passing()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_passing()'>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <CTestItem u'test_passing()'> [collection]
+      pytest_itemcollected [hook]
+          item: <CTestItem u'test_passing()'>
+      finish pytest_itemcollected --> [] [hook]
+      pytest_collectreport [hook]
+          report: <CollectReport 'test/test_passing.c' lenresult=2 outcome='passed'>
+      finish pytest_collectreport --> [] [hook]
+      pytest_collection_modifyitems [hook]
+          items: [<CTestItem u'test_some_integers()'>, <CTestItem u'test_some_integers()'>, <CTestItem u'test_more_integers()'>, <CTestItem u'test_more_integers()'>, <CTestItem u'test_some_strings()'>, <CTestItem u'test_some_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_passing()'>, <CTestItem u'test_passing()'>]
+          session: <Session 'pytest_c_testrunner-master'>
+          config: <_pytest.config.Config object at 0x7f068b15b910>
+      finish pytest_collection_modifyitems --> [] [hook]
+      pytest_collection_finish [hook]
+          session: <Session 'pytest_c_testrunner-master'>
+        pytest_report_collectionfinish [hook]
+            items: [<CTestItem u'test_some_integers()'>, <CTestItem u'test_some_integers()'>, <CTestItem u'test_more_integers()'>, <CTestItem u'test_more_integers()'>, <CTestItem u'test_some_strings()'>, <CTestItem u'test_some_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_passing()'>, <CTestItem u'test_passing()'>]
+            config: <_pytest.config.Config object at 0x7f068b15b910>
+            startdir: /home/bruno.david/testfunction/pytest_c_testrunner-master
+        finish pytest_report_collectionfinish --> [] [hook]
+      finish pytest_collection_finish --> [] [hook]
+    finish pytest_collection --> [<CTestItem u'test_some_integers()'>, <CTestItem u'test_some_integers()'>, <CTestItem u'test_more_integers()'>, <CTestItem u'test_more_integers()'>, <CTestItem u'test_some_strings()'>, <CTestItem u'test_some_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_more_strings()'>, <CTestItem u'test_passing()'>, <CTestItem u'test_passing()'>] [hook]
+    pytest_runtestloop [hook]
+        session: <Session 'pytest_c_testrunner-master'>
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_some_integers()'>
+          nextitem: <CTestItem u'test_some_integers()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_integers.c', 12, 'test_some_integers()')
+            nodeid: test/test_basic_integers.c::test_some_integers()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_some_integers()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_integers()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_some_integers()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_some_integers()'>
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_integers()'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_some_integers()' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_some_integers()'>
+            nextitem: <CTestItem u'test_some_integers()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_integers()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_some_integers()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_integers.c', 12, 'test_some_integers()')
+            nodeid: test/test_basic_integers.c::test_some_integers()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_some_integers()'>
+          nextitem: <CTestItem u'test_more_integers()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_integers.c', 13, 'test_some_integers()')
+            nodeid: test/test_basic_integers.c::test_some_integers()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_some_integers()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_integers()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_some_integers()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_some_integers()'>
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_integers()'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_some_integers()' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_some_integers()'>
+            nextitem: <CTestItem u'test_more_integers()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_integers()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_some_integers()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_some_integers()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_integers.c', 13, 'test_some_integers()')
+            nodeid: test/test_basic_integers.c::test_some_integers()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_more_integers()'>
+          nextitem: <CTestItem u'test_more_integers()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_integers.c', 18, 'test_more_integers()')
+            nodeid: test/test_basic_integers.c::test_more_integers()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_more_integers()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_integers()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_more_integers()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_more_integers()'>
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_integers()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_more_integers()'>, u'test_more_integers()')>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_more_integers()' when='call' outcome='failed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='call' outcome='failed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='call' outcome='failed'>
+          finish pytest_report_teststatus --> ('failed', 'F', 'FAILED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_exception_interact [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='call' outcome='failed'>
+            node: <CTestItem u'test_more_integers()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_more_integers()'>, u'test_more_integers()')>
+        finish pytest_exception_interact --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_more_integers()'>
+            nextitem: <CTestItem u'test_more_integers()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_integers()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_more_integers()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_integers.c', 18, 'test_more_integers()')
+            nodeid: test/test_basic_integers.c::test_more_integers()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_more_integers()'>
+          nextitem: <CTestItem u'test_some_strings()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_integers.c', 19, 'test_more_integers()')
+            nodeid: test/test_basic_integers.c::test_more_integers()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_more_integers()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_integers()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_more_integers()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_more_integers()'>
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_integers()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_more_integers()'>, u'test_more_integers()')>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_more_integers()' when='call' outcome='failed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='call' outcome='failed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='call' outcome='failed'>
+          finish pytest_report_teststatus --> ('failed', 'F', 'FAILED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_exception_interact [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='call' outcome='failed'>
+            node: <CTestItem u'test_more_integers()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_more_integers()'>, u'test_more_integers()')>
+        finish pytest_exception_interact --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_more_integers()'>
+            nextitem: <CTestItem u'test_some_strings()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_integers()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_integers.c::test_more_integers()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_integers.c::test_more_integers()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_integers.c', 19, 'test_more_integers()')
+            nodeid: test/test_basic_integers.c::test_more_integers()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_some_strings()'>
+          nextitem: <CTestItem u'test_some_strings()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_strings.c', 15, 'test_some_strings()')
+            nodeid: test/test_basic_strings.c::test_some_strings()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_some_strings()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_strings()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_some_strings()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_some_strings()'>
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_strings()'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_some_strings()' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_some_strings()'>
+            nextitem: <CTestItem u'test_some_strings()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_strings()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_some_strings()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_strings.c', 15, 'test_some_strings()')
+            nodeid: test/test_basic_strings.c::test_some_strings()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_some_strings()'>
+          nextitem: <CTestItem u'test_more_strings()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_strings.c', 16, 'test_some_strings()')
+            nodeid: test/test_basic_strings.c::test_some_strings()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_some_strings()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_strings()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_some_strings()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_some_strings()'>
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_strings()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_some_strings()'>, u'test_some_strings()')>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_some_strings()' when='call' outcome='failed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='call' outcome='failed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='call' outcome='failed'>
+          finish pytest_report_teststatus --> ('failed', 'F', 'FAILED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_exception_interact [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='call' outcome='failed'>
+            node: <CTestItem u'test_some_strings()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_some_strings()'>, u'test_some_strings()')>
+        finish pytest_exception_interact --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_some_strings()'>
+            nextitem: <CTestItem u'test_more_strings()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_some_strings()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_some_strings()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_some_strings()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_strings.c', 16, 'test_some_strings()')
+            nodeid: test/test_basic_strings.c::test_some_strings()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_more_strings()'>
+          nextitem: <CTestItem u'test_more_strings()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_strings.c', 24, 'test_more_strings()')
+            nodeid: test/test_basic_strings.c::test_more_strings()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_more_strings()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_more_strings()'>
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_more_strings()'>, u'test_more_strings()')>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='failed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='failed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='failed'>
+          finish pytest_report_teststatus --> ('failed', 'F', 'FAILED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_exception_interact [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='failed'>
+            node: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_more_strings()'>, u'test_more_strings()')>
+        finish pytest_exception_interact --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_more_strings()'>
+            nextitem: <CTestItem u'test_more_strings()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_strings.c', 24, 'test_more_strings()')
+            nodeid: test/test_basic_strings.c::test_more_strings()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_more_strings()'>
+          nextitem: <CTestItem u'test_more_strings()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_strings.c', 25, 'test_more_strings()')
+            nodeid: test/test_basic_strings.c::test_more_strings()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_more_strings()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_more_strings()'>
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_more_strings()'>, u'test_more_strings()')>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='failed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='failed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='failed'>
+          finish pytest_report_teststatus --> ('failed', 'F', 'FAILED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_exception_interact [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='failed'>
+            node: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='call' exception: (<CTestItem u'test_more_strings()'>, u'test_more_strings()')>
+        finish pytest_exception_interact --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_more_strings()'>
+            nextitem: <CTestItem u'test_more_strings()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_strings.c', 25, 'test_more_strings()')
+            nodeid: test/test_basic_strings.c::test_more_strings()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_more_strings()'>
+          nextitem: <CTestItem u'test_passing()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_basic_strings.c', 26, 'test_more_strings()')
+            nodeid: test/test_basic_strings.c::test_more_strings()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_more_strings()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_more_strings()'>
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_more_strings()'>
+            nextitem: <CTestItem u'test_passing()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_more_strings()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_basic_strings.c::test_more_strings()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_basic_strings.c', 26, 'test_more_strings()')
+            nodeid: test/test_basic_strings.c::test_more_strings()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_passing()'>
+          nextitem: <CTestItem u'test_passing()'>
+        pytest_runtest_logstart [hook]
+            location: ('test/test_passing.c', 14, 'test_passing()')
+            nodeid: test/test_passing.c::test_passing()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_passing()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_passing()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_passing.c::test_passing()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_passing.c::test_passing()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_passing.c::test_passing()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_passing()'>
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_passing()'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_passing.c::test_passing()' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_passing.c::test_passing()' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_passing.c::test_passing()' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_passing()'>
+            nextitem: <CTestItem u'test_passing()'>
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_passing()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_passing.c::test_passing()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_passing.c::test_passing()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_passing.c::test_passing()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_passing.c', 14, 'test_passing()')
+            nodeid: test/test_passing.c::test_passing()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+      pytest_runtest_protocol [hook]
+          item: <CTestItem u'test_passing()'>
+          nextitem: None
+        pytest_runtest_logstart [hook]
+            location: ('test/test_passing.c', 15, 'test_passing()')
+            nodeid: test/test_passing.c::test_passing()
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <CTestItem u'test_passing()'>
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_passing()'>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_passing.c::test_passing()' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_passing.c::test_passing()' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_passing.c::test_passing()' when='setup' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <CTestItem u'test_passing()'>
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_passing()'>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_passing.c::test_passing()' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_passing.c::test_passing()' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_passing.c::test_passing()' when='call' outcome='passed'>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <CTestItem u'test_passing()'>
+            nextitem: None
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <CTestItem u'test_passing()'>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport u'test/test_passing.c::test_passing()' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport u'test/test_passing.c::test_passing()' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport u'test/test_passing.c::test_passing()' when='teardown' outcome='passed'>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            location: ('test/test_passing.c', 15, 'test_passing()')
+            nodeid: test/test_passing.c::test_passing()
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+    finish pytest_runtestloop --> True [hook]
+    pytest_sessionfinish [hook]
+        session: <Session 'pytest_c_testrunner-master'>
+        exitstatus: 1
+      pytest_terminal_summary [hook]
+          exitstatus: 1
+          terminalreporter: <_pytest.terminal.TerminalReporter object at 0x7f068abca910>
+      finish pytest_terminal_summary --> [] [hook]
+    finish pytest_sessionfinish --> [] [hook]
+    pytest_unconfigure [hook]
+        config: <_pytest.config.Config object at 0x7f068b15b910>
+    finish pytest_unconfigure --> [] [hook]
+  finish [config:tmpdir]
