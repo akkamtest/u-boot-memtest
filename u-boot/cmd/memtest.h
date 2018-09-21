@@ -5,10 +5,11 @@
 //typedef unsigned long ulong;
 
 
-
+#define MEMTEST_LOWEST_ADDR		0x0000000000000000
+#define MEMTEST_HIGHEST_ADDR	0xFFFFFFFFFFFFFFF8
 #define MOD_SZ			   		20
 #define MEMTEST_MOD_OFFSET 		0
-#define MEMTEST_ITERATION  		10
+#define MEMTEST_ITERATION  		2
 #define MEMTEST_RAND_SEED_1		5
 #define MEMTEST_RAND_SEED_2		17
 #define MEMTEST_PATTERN_64_A	0xCAFEDECADECACAFE
@@ -27,33 +28,22 @@
 
 
 
-
+unsigned char verify_start_param(ulong start);
+unsigned char verify_end_param(ulong end);
+unsigned char verify_stop_param(ulong stop);
 unsigned long long int rand1 (unsigned char salt);
 void reset_seed(void);
-//void error(unsigned long long int adr, unsigned long long int good, unsigned long long int bad, int test_num);
 void error(ulong adr, ulong good, ulong bad, int test_num);
-//void mtest_debug(int test_num, unsigned long long int adr, unsigned long long int value);
 void mtest_debug(int test_num, ulong adr, ulong value);
-//unsigned char addr_tst0(unsigned long long int start, unsigned long long int end, unsigned char stop_after_err);
 unsigned char addr_tst1(ulong start, ulong end, unsigned char stop_after_err);
-//unsigned char addr_tst1(unsigned long long int start, unsigned long long int end, char stop_after_err);
 unsigned char addr_tst2(ulong start, ulong end, char stop_after_err);
-
 unsigned char movinv (int iter, ulong start, ulong end, unsigned char stop_after_err);
-
 unsigned char movinv_8bit (int iter, ulong start, ulong end, ulong stop_after_err);
-
 unsigned char movinvr (int iter, ulong start, ulong end, unsigned char stop_after_err);
-
 unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err);
-
 unsigned char rand_seq(unsigned char iter_rand, ulong start, ulong end, unsigned char stop_after_err);
-
 unsigned char modtst(int offset, int iter, ulong p1, ulong p2, ulong start, ulong end, unsigned char stop_after_err);
-
-void bit_fade_fill(ulong p1, ulong start, ulong end);
-
+unsigned char bit_fade_fill(ulong p1, ulong start, ulong end, unsigned char stop_after_err);
 unsigned char bit_fade_chk(ulong p1, ulong start, ulong end, unsigned char stop_after_err);
-
 void wait (unsigned int sec);
 #endif /* _TEST_H_ */

@@ -12,6 +12,39 @@ static unsigned long long int SEED_B;
 static unsigned long long int SEED_C;
 static unsigned long long int SEED_D;
 
+unsigned char verify_start_param(ulong start)
+{
+	if ((start < MEMTEST_LOWEST_ADDR) || (start > MEMTEST_HIGHEST_ADDR))
+	{
+		printf ("Error with Start address\n");
+		return(1);
+	}
+	return(0);
+}
+
+unsigned char verify_end_param(ulong end)
+{
+	if ((end < MEMTEST_LOWEST_ADDR) || (end > MEMTEST_HIGHEST_ADDR))
+	{
+		printf ("Error with End address\n");
+		return(1);
+	}
+	return(0);
+}
+
+unsigned char verify_stop_param(ulong stop)
+{
+	if (stop != 0)
+	{
+		if (stop != 1)
+		{
+			printf ("Error with Stop bit\n");
+			return(1);
+		}
+	}
+	return(0);
+}
+
 unsigned long long int rand1 (unsigned char salt)
 {
    static unsigned int a = 18000, b = 30903, c = 15333, d = 21041;
@@ -66,15 +99,22 @@ unsigned char addr_tst1(ulong start, ulong end, unsigned char stop_after_err)
 	unsigned char i, mask, *p, *pe;
 	int test_num = 1;
 
-	/* Initialise tested memory range */
-	p = (unsigned char *)start;
-	pe = (unsigned char *)end;	
-		
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+	
 	/* Disable cache */
 #ifdef CONFIG_CMD_CACHE	
 	icache_disable();
+	flush_dcache_all();
 	dcache_disable();
 #endif
+		
+	/* Initialise tested memory range */
+	p = (unsigned char *)start;
+	pe = (unsigned char *)end;	
 	
 	/* test each bit for all address */
 	for (; p <= pe; p++) 
@@ -106,6 +146,18 @@ unsigned char addr_tst2(ulong start, ulong end, char stop_after_err)
 	ulong *p, *pe;
 	int test_num = 2;	
 
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+	/* Disable cache */
+#ifdef CONFIG_CMD_CACHE	
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
+#endif
+	
 	/* Initialise tested memory range */
 	p = (ulong*)start;
 	pe = (ulong*)end;
@@ -143,10 +195,17 @@ unsigned char movinv (int iter, ulong start, ulong end, unsigned char stop_after
 	ulong *p, *pe;
 	ulong p1 = 0xA5A5A5A5A5A5A5A5;
 	
-	/* Enable cache */
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+	
+	/* Disable cache */
 #ifdef CONFIG_CMD_CACHE	
-	icache_enable();
-	dcache_enable();
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
 #endif
 	
 	p = (ulong*)start;
@@ -210,11 +269,18 @@ unsigned char movinv_8bit (int iter, ulong start, ulong end, ulong stop_after_er
 	unsigned char *p, *pe;
 	unsigned char p1 = 0x0F;
 	unsigned char p2 = ~p1;
-
-	/* Enable cache */
+	
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+	
+	/* Disable cache */
 #ifdef CONFIG_CMD_CACHE	
-	icache_enable();
-	dcache_enable();
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
 #endif
 	
 	p = (unsigned char*)start;
@@ -278,10 +344,17 @@ unsigned char movinvr (int iter, ulong start, ulong end, unsigned char stop_afte
 	ulong *p, *pe;
 	ulong p1;
 	
-	/* Enable cache */
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+	
+	/* Disable cache */
 #ifdef CONFIG_CMD_CACHE	
-	icache_enable();
-	dcache_enable();
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
 #endif
 	
 	/* Initialise random pattern */
@@ -355,10 +428,17 @@ unsigned char movinv64(ulong start, ulong end, unsigned char stop_after_err)
 	ulong tab[64];
 	unsigned char tab_compl = 0;
 	
-	/* Enable cache */
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+		
+	/* Disable cache */
 #ifdef CONFIG_CMD_CACHE	
-	icache_enable();
-	dcache_enable();
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
 #endif
 	
 	/* Initialise tested memory range */
@@ -464,10 +544,17 @@ unsigned char rand_seq(unsigned char iter_rand, ulong start, ulong end, unsigned
 	ulong *p, *pe, num;
 	int test_num = 8;
 	
-	/* Enable cache */
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+	
+	/* Disable cache */
 #ifdef CONFIG_CMD_CACHE	
-	icache_enable();
-	dcache_enable();
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
 #endif
 	
 	reset_seed();
@@ -526,10 +613,17 @@ unsigned char modtst(int offset, int iter, ulong p1, ulong p2, ulong start, ulon
 	ulong *pe;
 	end -= MOD_SZ * 8;	/* adjust the ending address */
 	
-	/* Enable cache */
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+	
+	/* Disable cache */
 #ifdef CONFIG_CMD_CACHE	
-	icache_enable();
-	dcache_enable();
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
 #endif
 	
 	/* Initialise tested memory range */
@@ -585,16 +679,23 @@ unsigned char modtst(int offset, int iter, ulong p1, ulong p2, ulong start, ulon
 	return(0);
 }
 
-void bit_fade_fill(ulong p1, ulong start, ulong end)
+unsigned char bit_fade_fill(ulong p1, ulong start, ulong end, unsigned char stop_after_err)
 {
 	ulong *p, *pe;
 #ifdef DEBUG_MEMTEST
 	int test_num = 10;
 #endif	
-	/* Enable cache */
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+
+	/* Disable cache */
 #ifdef CONFIG_CMD_CACHE	
-	icache_enable();
-	dcache_enable();
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
 #endif
 		
 	/* Initialise tested memory range */
@@ -609,13 +710,27 @@ void bit_fade_fill(ulong p1, ulong start, ulong end)
 		mtest_debug(test_num, (ulong)p, *p);
 #endif	
 	}
+	return(0);
 }
 	
 unsigned char bit_fade_chk(ulong p1, ulong start, ulong end, unsigned char stop_after_err)
 {
 	ulong *p, *pe, bad;
 	int test_num = 10;
-			
+	
+	/* Test parameters */
+	if (verify_start_param(start)||verify_end_param(end)||verify_stop_param(stop_after_err))
+	{
+		return(1);
+	}
+	
+	/* Disable cache */
+#ifdef CONFIG_CMD_CACHE	
+	icache_disable();
+	flush_dcache_all();
+	dcache_disable();
+#endif
+	
 	/* Initialise tested memory range */
 	p = (ulong *)start;
 	pe = (ulong *)end;

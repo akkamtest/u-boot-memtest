@@ -625,7 +625,14 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 		return -1;
 	}
 
+	if ((test < 0x0)||(test > 0xa))
+	{
+		printf("Invalid test id\n");
+		return -1;
+	}
+
 	printf("Testing %08lx ... %08lx:\n", start, end);
+	
 	if (test == 0)
 	{
 		test_id = 0x03FF;
@@ -702,13 +709,17 @@ static int do_mem_mtest(cmd_tbl_t *cmdtp, int flag, int argc,
 		for (i = 1; i <= MEMTEST_ITERATION;i++)
 		{
 			printf("bit_fade iter = %d\n", i);
-			bit_fade_fill(MEMTEST_PATTERN_64_B, start, end);
-			wait(2);
-			printf("wait\n");
+			if (!bit_fade_fill(MEMTEST_PATTERN_64_B, start, end, stop))
+			{
+				printf("wait\n");
+				wait(2);
+			}
 			ret |= bit_fade_chk(MEMTEST_PATTERN_64_B, start, end, stop);
-			bit_fade_fill(MEMTEST_PATTERN_64_C, start, end);
-			wait(2);
-			printf("wait\n");
+			if (!bit_fade_fill(MEMTEST_PATTERN_64_C, start, end, stop))
+			{
+				printf("wait\n");
+				wait(2);
+			}
 			ret |= bit_fade_chk(MEMTEST_PATTERN_64_C, start, end, stop);
 		}
 	}
